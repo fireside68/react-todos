@@ -1,19 +1,37 @@
-// Objective: Fill in the boilerplate React code required to render an
-// unordered list (<ul>) to the page. The list should contain 3 list items
-// (<li>) with anything in them you want.
-
-// HINTS:
-// import the libraries you need first
-// use one of the libraries to render some JSX to the page
+// Objectives:
+// 1. Set up the basic React code from scratch
+// 2. Create a functional component called MyInfo that returns the following UI:
+    // a. An h1 with your name
+    // b. A paragraph with a little blurb about yourself
+    // c. An ordered or unordered list of the top 3 vacation spots you'd like to visit
+// 3. Render an instance of that functional component to the browser
+// Extra challenge: learn on your own (Google!) how you can add some style to your page.
+// (We will also cover this in an upcoming lesson).
 
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+function MyInfo() {
+  return (
+    <div>
+      <div>
+        <h1>This is the heading</h1>
+      </div>
+      <div>
+        <p>This is the paragraph</p>
+      </div>
+      <div>
+        <ul>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
 ReactDOM.render(
-  <ul>
-    <li>First try: Eh</li>
-    <li>Second try: Better</li>
-    <li>Third try: I think I'm getting it</li>
-  </ul>,
+  <MyInfo/>,
   document.getElementById('root')
 )

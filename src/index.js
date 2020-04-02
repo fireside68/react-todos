@@ -10,26 +10,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-function MyInfo() {
-  return (
-    <div>
-      <div>
-        <h1>This is the heading</h1>
-      </div>
-      <div>
-        <p>This is the paragraph</p>
-      </div>
-      <div>
-        <ul>
-          <li>List item one</li>
-          <li>List item two</li>
-          <li>List item three</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
+import MyInfo from './components/MyInfo.js'
 
 ReactDOM.render(
   <MyInfo/>,

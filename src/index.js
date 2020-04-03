@@ -1,18 +1,15 @@
-// Objectives:
-// 1. Set up the basic React code from scratch
-// 2. Create a functional component called MyInfo that returns the following UI:
-    // a. An h1 with your name
-    // b. A paragraph with a little blurb about yourself
-    // c. An ordered or unordered list of the top 3 vacation spots you'd like to visit
-// 3. Render an instance of that functional component to the browser
-// Extra challenge: learn on your own (Google!) how you can add some style to your page.
-// (We will also cover this in an upcoming lesson).
+// Set up the React app from scratch
+// Render an App component (defined in a separate file)
+// Inside App, render:
+  // 1. A Navbar component
+  // 2. A MainContent component
+  // 3. A Footer component
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyInfo from './components/MyInfo.js'
+import App from './components/App'
 
 ReactDOM.render(
-  <MyInfo/>,
+  <App/>,
   document.getElementById('root')
 )

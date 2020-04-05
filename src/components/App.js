@@ -1,18 +1,18 @@
-import React from 'react'
-// import MainContent from './MainContent'
-// import Navbar from './Navbar'
-// import Footer from './Footer'
-import TodoItem from './TodoItem'
+import React from "react"
+
+// import Joke from "./Joke"
+// import jokesData from "../jokesData"
+import Product from './Product'
+import productsData from '../vschoolProducts'
 
 function App() {
-  return (
-    <div className="todo-list">
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-    </div>
-  )
+    const productComponents = productsData.map(item => <Product key={item.id} product={item}/>)
+    
+    return (
+        <div>
+            {productComponents}
+        </div>
+    )
 }
 
 export default App

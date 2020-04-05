@@ -3,6 +3,7 @@ import ContactCard from './ContactCard'
 // import MainContent from './MainContent'
 // import Navbar from './Navbar'
 // import Footer from './Footer'
+import TodoItem from './TodoItem'
 
 function App() {
   return (

@@ -2,15 +2,15 @@ import React from 'react'
 // import MainContent from './MainContent'
 // import Navbar from './Navbar'
 // import Footer from './Footer'
-import TodoItem from './TodoItem'
+import Joke from './Joke'
 
 function App() {
   return (
-    <div className="todo-list">
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
+    <div>
+      <Joke question="Why did the chicken cross the road?"
+        punchLine="To get to the other side"/>
+      <br/>
+      <Joke punchLine="I used to do drugs. I still do, but I used to, too."/>
     </div>
   )
 }

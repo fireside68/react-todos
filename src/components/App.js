@@ -1,19 +1,18 @@
-import React from 'react'
-import ContactCard from './ContactCard'
-// import MainContent from './MainContent'
-// import Navbar from './Navbar'
-// import Footer from './Footer'
-import Joke from './Joke'
+import React from "react"
+
+// import Joke from "./Joke"
+// import jokesData from "../jokesData"
+import Product from './Product'
+import productsData from '../vschoolProducts'
 
 function App() {
-  return (
-    <div>
-      <Joke question="Why did the chicken cross the road?"
-        punchLine="To get to the other side"/>
-      <br/>
-      <Joke punchLine="I used to do drugs. I still do, but I used to, too."/>
-    </div>
-  )
+    const productComponents = productsData.map(item => <Product key={item.id} product={item}/>)
+    
+    return (
+        <div>
+            {productComponents}
+        </div>
+    )
 }
 
 export default App

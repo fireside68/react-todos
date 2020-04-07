@@ -10,14 +10,24 @@ import React from "react"
 import TodoItem from "./TodoItem"
 import todosData from "../todosData"
 
-function App() {
+// function App() {
 
-  const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+//   const todoItems = todosData.map(item => <TodoItem key={item.id} item={item}/>)
+//     return (
+//         <div className="todo-list">
+//             {todoItems}
+//         </div>
+//     )
+// }
+class App extends React.Component {
+  render() {
+    const date = new Date();
+
     return (
-        <div className="todo-list">
-            {todoItems}
-        </div>
+      <div>
+        <h1>Testing.</h1>
+      </div>
     )
+  }
 }
-
 export default App

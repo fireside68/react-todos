@@ -1,12 +1,12 @@
 import React from "react"
 
 function TodoItem(props) {
-    function alarmBell() {
-        alert("This is an alarm!")
-    }
+
     return (
         <div className="todo-item">
-            <input type="checkbox" checked={props.item.completed} onChange={alarmBell}/>
+            <input type="checkbox" 
+            checked={props.item.completed} 
+            onChange={() => props.handleChange(props.item.id)}/>
             <p>{props.item.text}</p>
         </div>
     )

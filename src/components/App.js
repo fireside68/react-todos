@@ -24,10 +24,28 @@ class App extends React.Component {
     }
     
     handleChange(id) {
+        /*
+            !this.setState - the function used to change state
+            !prevState - the reprsentation of the previous state
+        */
         this.setState(prevState => {
+            /* 
+                since todos is on state, the prevState object also has todos
+                therefore, to access the previous state's todos object, it is
+                necessary to use prevState.todos
+            */
             const updatedTodos = prevState.todos.map(todo => {
                 if (todo.id === id) {
-                    return {...todo, completed: !todo.completed}
+                    /*
+                        !In order to avoid altering the previous state, the spread operator is
+                        !used to access the properties within, allowing for an overwrite of the 
+                        !previous state's properties. In this instance, because the return is an
+                        !object, it's actually a new state object, so the previous one's not altered.
+                    */
+                    return {
+                        ...todo, 
+                        completed: !todo.completed
+                    }
                 }
                 return todo
             })

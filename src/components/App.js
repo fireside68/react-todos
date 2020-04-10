@@ -1,31 +1,68 @@
-/*
-In the previous iteration of this todo list app, we pulled in todos data from a JSON file and mapped over it to display the todo items.
+/**
+ * Let's make it so our checkbox can actually mark our todo as complete or incomplete!
+ * This challenge is a little more involved than some of the past ones. Check the comments 
+ * in the code for some help on accomplishing this one
+ * 
+ * Challenge: 
+ * 1. Create an event handler in the App component for when the checkbox is clicked (which is an `onChange` event)
+ *    a. This method will be the trickest part. Check the comments in the stubbed-out method below for some pseudocode to help guide you through this part
+ * 2. Pass the method down to the TodoItem component
+ * 3. In the TodoItem component, make it so when the `onChange` event happens, it calls the `handleChange` method and passes the id of the todo into the function
+ */
 
-Eventually we'll want to be able to modify the data, which will only happen if we've "loaded" the data in to the component's state
-
-Challenge: Change the <App /> component into a stateful class component and load the imported `todosData` into state.
-*/
-
-import React, {Component} from "react"
+import React from "react"
 import TodoItem from "./TodoItem"
 import todosData from "../todosData"
 
-class App extends Component {
+class App extends React.Component {
     constructor() {
         super()
         this.state = {
             todos: todosData
         }
+        this.handleChange = this.handleChange.bind(this)
     }
     
+    handleChange(id) {
+        /*
+            !this.setState - the function used to change state
+            !prevState - the reprsentation of the previous state
+        */
+        this.setState(prevState => {
+            /* 
+                since todos is on state, the prevState object also has todos
+                therefore, to access the previous state's todos object, it is
+                necessary to use prevState.todos
+            */
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    /*
+                        !In order to avoid altering the previous state, the spread operator is
+                        !used to access the properties within, allowing for an overwrite of the 
+                        !previous state's properties. In this instance, because the return is an
+                        !object, it's actually a new state object, so the previous one's not altered.
+                    */
+                    return {
+                        ...todo, 
+                        completed: !todo.completed
+                    }
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
+    }
     
     render() {
-        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item}/>)
+        const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+        
         return (
             <div className="todo-list">
                 {todoItems}
             </div>
-        )
+        )    
     }
 }
 
